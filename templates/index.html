@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Spice | Authentic Indian Restaurant</title>
+
+    <meta name="description"
+          content="Royal Spice - Enjoy delicious authentic Indian food in a premium dining experience.">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="customer-page">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="header">
+        <nav class="navbar">
+
+            <a href="#home" class="logo">
+                <span>🍛</span> Royal Spice
+            </a>
+
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#track">Track Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#order" class="nav-btn">Order Now</a>
+
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO ROYAL SPICE</p>
+
+            <h1>
+                Taste the
+                <span>Royal</span>
+                Tradition
+            </h1>
+
+            <p class="hero-text">
+                Experience authentic Indian flavors prepared with
+                fresh ingredients, traditional spices and lots of love.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">Explore Menu</a>
+                <a href="#order" class="secondary-btn">Order Online</a>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+            <div class="food-circle">
+                🍛
+            </div>
+
+            <h3>Today's Special</h3>
+            <p>Royal Butter Chicken</p>
+            <strong>₹299</strong>
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features">
+
+        <div class="feature">
+            <span>🥘</span>
+            <h3>Fresh Food</h3>
+            <p>Fresh ingredients every day.</p>
+        </div>
+
+        <div class="feature">
+            <span>👨‍🍳</span>
+            <h3>Expert Chefs</h3>
+            <p>Prepared by experienced chefs.</p>
+        </div>
+
+        <div class="feature">
+            <span>🚚</span>
+            <h3>Fast Delivery</h3>
+            <p>Hot food delivered to your door.</p>
+        </div>
+
+        <div class="feature">
+            <span>⭐</span>
+            <h3>Best Quality</h3>
+            <p>Quality is our first priority.</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+    <!-- ================= PREMIUM MENU ================= -->
+<section class="menu-section premium-menu" id="menu">
+
+    <div class="section-heading">
+
+        <p>OUR SPECIAL MENU</p>
+
+        <h2>Most Loved Dishes</h2>
+
+        <span>
+            Discover our most loved dishes prepared with authentic spices.
+        </span>
+
+    </div>
+
+
+    <div class="menu-grid">
+
+
+        <!-- BUTTER CHICKEN -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Butter%20Chicken%20%26%20Naan.jpg"
+                    alt="Butter Chicken"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Butter Chicken</h3>
+
+                    <strong>₹299</strong>
+
+                </div>
+
+                <p>
+                    Tender chicken cooked in creamy tomato gravy
+                    with traditional Indian spices.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Butter Chicken">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- PANEER TIKKA -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Paneer-Tikka.jpg"
+                    alt="Paneer Tikka"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Paneer Tikka</h3>
+
+                    <strong>₹249</strong>
+
+                </div>
+
+                <p>
+                    Soft paneer marinated with spices and grilled
+                    to perfection.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Paneer Tikka">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- CHICKEN BIRYANI -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20Biriyani%20-%20Mughlai%20cuisine-1.jpg"
+                    alt="Chicken Biryani"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Chicken Biryani</h3>
+
+                    <strong>₹279</strong>
+
+                </div>
+
+                <p>
+                    Fragrant basmati rice cooked with juicy chicken
+                    and aromatic Indian spices.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Chicken Biryani">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- GARLIC NAAN -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/ButterNaan.JPG"
+                    alt="Garlic Naan"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Garlic Naan</h3>
+
+                    <strong>₹89</strong>
+
+                </div>
+
+                <p>
+                    Soft naan topped with garlic, butter and fresh
+                    coriander.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Garlic Naan">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- VEG THALI -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Indian%20Thali.jpg"
+                    alt="Veg Thali"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Veg Thali</h3>
+
+                    <strong>₹199</strong>
+
+                </div>
+
+                <p>
+                    A delicious combination of vegetables,
+                    dal, rice, roti and dessert.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Veg Thali">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- GULAB JAMUN -->
+        <article class="food-card">
+
+            <div class="food-image">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Gulab%20Jamuns.jpg"
+                    alt="Gulab Jamun"
+                >
+
+            </div>
+
+            <div class="food-info">
+
+                <div class="food-title">
+
+                    <h3>Gulab Jamun</h3>
+
+                    <strong>₹99</strong>
+
+                </div>
+
+                <p>
+                    Soft sweet dumplings served warm with delicious
+                    sugar syrup.
+                </p>
+
+                <button
+                    class="add-btn"
+                    data-item="Gulab Jamun">
+
+                    🛒 Add to Order
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+    <!-- ================= OFFER ================= -->
+    <section class="offer-section" id="offers">
+
+        <div class="offer-content">
+
+            <p>LIMITED TIME OFFER</p>
+
+            <h2>Get 20% OFF</h2>
+
+            <h3>On Your First Online Order</h3>
+
+            <p>
+                Use the coupon code below while ordering online.
+            </p>
+
+            <div class="coupon">
+                ROYAL20
+            </div>
+
+            <a href="#order" class="primary-btn">
+                Order Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about-section" id="about">
+
+        <div class="about-image">
+            🍽️
+        </div>
+
+        <div class="about-content">
+
+            <p class="small-title">ABOUT ROYAL SPICE</p>
+
+            <h2>A Taste of India in Every Bite</h2>
+
+            <p>
+                Royal Spice was created with one simple idea —
+                to bring authentic Indian flavors to your table.
+            </p>
+
+            <p>
+                From traditional recipes to modern presentation,
+                every dish is carefully prepared using quality
+                ingredients and aromatic spices.
+            </p>
+
+            <div class="stats">
+
+                <div>
+                    <strong>10+</strong>
+                    <span>Years Experience</span>
+                </div>
+
+                <div>
+                    <strong>50+</strong>
+                    <span>Menu Items</span>
+                </div>
+
+                <div>
+                    <strong>10K+</strong>
+                    <span>Happy Customers</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+  <!-- ================= ORDER TRACKING ================= -->
+
+<section id="track" class="track-section">
+
+    <h2>🔎 Track Your Order</h2>
+
+    <p>Enter your Order ID to check your order status.</p>
+
+    <div class="track-box">
+
+        <input
+            type="number"
+            id="trackOrderId"
+            placeholder="Enter Order ID"
+            min="1"
+        >
+
+        <button
+            type="button"
+            onclick="trackOrder()">
+            Track Order
+        </button>
+
+    </div>
+
+    <div id="trackingResult"></div>
+
+</section>
+
+    <!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="section-heading">
+
+        <p>WHAT OUR CUSTOMERS SAY</p>
+
+        <h2>Customer Reviews</h2>
+
+        <span>
+            Your experience matters to us.
+        </span>
+
+    </div>
+
+
+    <!-- Rating Summary -->
+
+    <div class="rating-summary">
+
+        <div class="average-rating">
+
+            <strong id="averageRating">
+                0.0
+            </strong>
+
+            <div class="stars" id="averageStars">
+                ☆☆☆☆☆
+            </div>
+
+            <span>
+                <span id="totalReviews">0</span>
+                reviews
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reviews -->
+
+    <div
+        class="reviews-grid"
+        id="reviewsContainer">
+
+        <p>Loading reviews...</p>
+
+    </div>
+
+</section>
+    <!-- ================= ORDER ================= -->
+    <section class="order-section" id="order">
+
+        <div class="section-heading">
+
+            <p>ORDER ONLINE</p>
+
+            <h2>Place Your Order</h2>
+
+            <span>
+                Fill in your details and select your favorite dish.
+            </span>
+
+        </div>
+
+
+        <form id="orderForm" class="order-form">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+            </div>
+
+
+
+
+            <div class="form-group">
+
+                <label for="quantity">Quantity</label>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    min="1"
+                    value="1"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+                <label for="address">Delivery Address</label>
+
+                <textarea
+                    id="address"
+                    rows="4"
+                    placeholder="Enter your delivery address"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Place Order
+            </button>
+
+        </form>
+
+        <p id="orderMessage" class="order-message"></p>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact-section" id="contact">
+
+        <div class="contact-box">
+
+            <span>📍</span>
+
+            <h3>Visit Us</h3>
+
+            <p>
+                Main Market, New Delhi, India
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <span>📞</span>
+
+            <h3>Call Us</h3>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <span>⏰</span>
+
+            <h3>Opening Hours</h3>
+
+            <p>
+                11:00 AM - 11:00 PM
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+
+                <a href="#home" class="logo">
+                    🍛 Royal Spice
+                </a>
+
+                <p>
+                    Authentic Indian food,
+                    made with love.
+                </p>
+
+            </div>
+
+
+            <div class="social-links">
+
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Royal Spice. All Rights Reserved.
+        </p>
+
+    </footer>
+    <!-- ================= ORDER SUCCESS POPUP ================= -->
+
+    <div id="successModal" class="success-modal">
+    <div class="success-box">
+        <button
+            type="button"
+            class="close-success"
+            onclick="closeSuccessModal()">
+            ×
+        </button>
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+        <h2>Order Confirmed!</h2>
+
+        <p>Your order has been placed successfully.</p>
+
+        <div class="success-details">
+
+            <p>
+                <strong>Order ID:</strong>
+                #<span id="successOrderId"></span>
+            </p>
+
+            <p>
+                <strong>Total:</strong>
+                ₹<span id="successTotal"></span>
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="track-success-btn"
+            onclick="goToTracking()">
+            🔎 Track Your Order
+        </button>
+
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

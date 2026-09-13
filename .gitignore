@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+git add .
+git commit -m "Initial Royal Spice website"
+git push -u origin main

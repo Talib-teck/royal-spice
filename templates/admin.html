@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Royal Spice - Admin Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .dashboard {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+        /* ================= FILTERS ================= */
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .filters input,
+        .filters select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            background: white;
+        }
+
+        .filters input {
+            flex: 1;
+        }
+
+        .filters select {
+            min-width: 160px;
+        }
+
+
+        /* ================= STATS ================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 10px;
+        }
+
+        .stat-card p {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+
+        /* ================= ORDERS ================= */
+
+        #orders {
+            width: 100%;
+        }
+
+        .order-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        .order-card h2 {
+            margin-top: 0;
+        }
+
+        .order-card p {
+            margin: 8px 0;
+        }
+
+
+        /* ================= STATUS ================= */
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: orange;
+            color: white;
+            font-weight: bold;
+        }
+
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-right: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .preparing {
+            background: #ff9800;
+            color: white;
+        }
+
+        .delivered {
+            background: #28a745;
+            color: white;
+        }
+
+        .delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.phone-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.phone-link:hover {
+    text-decoration: underline;
+}
+
+.details-btn {
+    background: #007bff;
+    color: white;
+}
+
+
+.delete-btn:hover {
+    opacity: 0.8;
+}
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+
+        /* ================= EMPTY ================= */
+
+        .empty {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+/* ================= ADMIN REVIEWS ================= */
+
+.admin-reviews {
+    margin-top: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.admin-reviews h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.review-admin-summary {
+    text-align: center;
+    background: #fff8ef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.review-admin-summary strong {
+    display: block;
+    font-size: 40px;
+}
+
+.review-admin-summary span {
+    color: #f5a623;
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.review-admin-summary p {
+    color: #666;
+}
+
+.admin-review-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.admin-review-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.admin-review-top h3 {
+    margin: 0 0 5px;
+}
+
+.admin-review-order {
+    color: #777;
+    font-size: 14px;
+}
+
+.admin-review-stars {
+    color: #f5a623;
+    font-size: 20px;
+}
+
+.admin-review-comment {
+    margin-top: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.no-admin-reviews {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+
+    .admin-review-top {
+        flex-direction: column;
+    }
+
+}
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filters select {
+                width: 100%;
+            }
+
+        }
+        .new-order-alert {
+    display: none;
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.order-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.order-modal.show {
+    display: flex;
+}
+
+.order-modal-box {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- ================= TITLE ================= -->
+
+    <h1>🍽️ Royal Spice Admin Dashboard</h1>
+
+    <div style="text-align: right; margin-bottom: 20px;">
+
+    <a href="/logout"
+       style="
+       background: #dc3545;
+       color: white;
+       padding: 10px 16px;
+       border-radius: 8px;
+       text-decoration: none;
+       font-weight: bold;
+       ">
+
+        Logout
+
+    </a>
+
+</div>
+
+    <div id="newOrderAlert" class="new-order-alert">
+    🔔 New order received!
+</div>
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search customer or phone..."
+            onkeyup="filterOrders()"
+        >
+
+        <select
+            id="statusFilter"
+            onchange="filterOrders()"
+        >
+            <option value="All">All Orders</option>
+            <option value="New">New</option>
+            <option value="Preparing">Preparing</option>
+            <option value="Delivered">Delivered</option>
+        </select>
+
+    </div>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h3>📦 Total Orders</h3>
+
+            <p>{{ total_orders }}</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>🆕 New Orders</h3>
+
+            <p>{{ new_orders }}</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>👨‍🍳 Preparing</h3>
+
+            <p>{{ preparing_orders }}</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>💰 Revenue</h3>
+
+            <p>₹{{ total_revenue }}</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ORDERS ================= -->
+
+    <div id="orders">
+
+
+        {% if orders %}
+
+
+            {% for order in orders %}
+
+
+            <div
+                class="order-card"
+                data-customer="{{ order.customer_name }}"
+                data-phone="{{ order.phone }}"
+                data-status="{{ order.status }}"
+            >
+
+                <h2>
+                    Order #{{ order.id }}
+                </h2>
+
+
+                <p>
+
+                    <strong>Customer:</strong>
+
+                    {{ order.customer_name }}
+
+                </p>
+
+
+                <p>
+
+                    <strong>Phone:</strong>
+                   
+                   <a href="tel:{{ order.phone }}" class="phone-link">
+        📞 {{ order.phone }}
+    </a> 
+
+                </p>
+
+
+                <p>
+
+                    <strong>Address:</strong>
+
+                    {{ order.address }}
+
+                </p>
+
+             <div class="order-items">
+
+    {% for item in order.items_list %}
+
+    <div class="item-row">
+        <span>
+            🍽️ {{ item.dish }} × {{ item.quantity }}
+        </span>
+
+        <strong>
+            ₹{{ item.price * item.quantity }}
+        </strong>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<div class="order-total">
+    <span>Total</span>
+    <strong>₹{{ order.total }}</strong>
+</div>
+
+
+                <p>
+
+                    <strong>Total:</strong>
+
+                    ₹{{ order.total }}
+
+                </p>
+
+
+                <p>
+
+                    <strong>Status:</strong>
+
+                    <span
+                        class="status"
+                        id="status-{{ order.id }}"
+                    >
+
+                        {{ order.status }}
+
+                    </span>
+
+                </p>
+
+
+                <div class="buttons">
+
+    <button
+        class="preparing"
+        onclick="updateStatus('{{ order.id }}', 'Preparing')"
+    >
+        Preparing
+    </button>
+
+    <button
+        class="delivered"
+        onclick="updateStatus('{{ order.id }}', 'Delivered')"
+    >
+        Delivered
+    </button>
+      
+     <button
+    class="details-btn"
+    onclick="viewOrderDetails('{{ order.id }}')"
+>
+    👁️ View Details
+</button>
+
+    <!-- DELETE ORDER -->
+    <button
+        class="delete-btn"
+        onclick="deleteOrder('{{ order.id }}')"
+    >
+        🗑️ Delete
+    </button>
+
+</div>
+
+            </div>
+
+
+            {% endfor %}
+
+
+        {% else %}
+
+
+            <div class="empty">
+
+                <h2>
+                    No orders yet 📭
+                </h2>
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+<!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="admin-reviews">
+
+    <h2>⭐ Customer Reviews</h2>
+
+    <div class="review-admin-summary">
+        <strong id="adminAverageRating">0.0</strong>
+        <span id="adminReviewStars">☆☆☆☆☆</span>
+        <p>
+            <span id="adminTotalReviews">0</span> reviews
+        </p>
+    </div>
+
+    <div id="adminReviewsContainer">
+        <p>Loading reviews...</p>
+    </div>
+
+</section>
+</div>
+</div>
+
+<!-- ================= ORDER DETAILS MODAL ================= -->
+
+<div id="orderModal" class="order-modal">
+
+    <div class="order-modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeOrderModal()"
+        >
+            ×
+        </button>
+
+        <h2>📋 Order Details</h2>
+
+        <div id="orderDetails"></div>
+
+    </div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* ================= UPDATE STATUS ================= */
+
+async function updateStatus(orderId, newStatus) {
+
+    try {
+
+        const response = await fetch(
+            `/api/order/${orderId}/status`,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    status: newStatus
+                })
+            }
+        );
+
+
+        const result = await response.json();
+
+
+        if (result.success) {
+
+
+            /* Update status text */
+
+            const statusElement =
+                document.querySelector(
+                    `#status-${orderId}`
+                );
+
+            statusElement.textContent = newStatus;
+
+
+            /* Update card's data-status */
+
+            const orderCard =
+                statusElement.closest(".order-card");
+
+            orderCard.dataset.status = newStatus;
+
+
+            /* Update status filter if necessary */
+
+            filterOrders();
+
+
+            alert(
+                "Order status updated to " + newStatus
+            );
+
+
+        } else {
+
+            alert(
+                "Error: " + result.message
+            );
+
+        }
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Server se connection nahi ho paya."
+        );
+
+    }
+
+}
+
+async function deleteOrder(orderId) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete Order #" + orderId + "?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `/api/order/${orderId}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+
+            alert("✅ Order #" + orderId + " deleted successfully.");
+
+            location.reload();
+
+        } else {
+
+            alert("❌ " + result.message);
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ Server se connection nahi ho paya.");
+
+    }
+}
+
+/* ================= SEARCH + FILTER ================= */
+
+function filterOrders() {
+
+
+    const search =
+        document
+            .querySelector("#searchInput")
+            .value
+            .toLowerCase();
+
+
+    const status =
+        document
+            .querySelector("#statusFilter")
+            .value;
+
+
+    const orders =
+        document.querySelectorAll(".order-card");
+
+
+    orders.forEach(order => {
+
+
+        const customer =
+            order.dataset.customer.toLowerCase();
+
+
+        const phone =
+            order.dataset.phone.toLowerCase();
+
+
+        const orderStatus =
+            order.dataset.status;
+
+
+        const searchMatch =
+            customer.includes(search) ||
+            phone.includes(search);
+
+
+        const statusMatch =
+            status === "All" ||
+            orderStatus === status;
+
+
+        if (
+            searchMatch &&
+            statusMatch
+        ) {
+
+            order.style.display = "block";
+
+        } else {
+
+            order.style.display = "none";
+
+        }
+
+
+    });
+
+}
+async function viewOrderDetails(orderId) {
+
+    try {
+
+        const response = await fetch(`/api/order/${orderId}`);
+
+        const result = await response.json();
+
+        if (!result.success) {
+            alert("❌ Order not found.");
+            return;
+        }
+
+        const order = result.order;
+
+        let itemsHTML = "";
+
+        order.items.forEach(item => {
+
+            const itemTotal = item.price * item.quantity;
+
+            itemsHTML += `
+                <div class="detail-row">
+                    <span>
+                        🍽️ ${item.dish} × ${item.quantity}
+                    </span>
+
+                    <strong>
+                        ₹${itemTotal}
+                    </strong>
+                </div>
+            `;
+        });
+
+        document.querySelector("#orderDetails").innerHTML = `
+
+            <div class="detail-row">
+                <span>Order ID</span>
+                <strong>#${order.id}</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>Customer</span>
+                <strong>${order.customer_name}</strong>
+            </div>
+
+            <h3>🍽️ Items</h3>
+
+            ${itemsHTML}
+
+            <div class="detail-total">
+                Total: ₹${order.total}
+            </div>
+
+        `;
+
+        document
+            .querySelector("#orderModal")
+            .classList.add("show");
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ Server se connection nahi ho paya.");
+
+    }
+}
+
+
+function closeOrderModal() {
+
+    document
+        .querySelector("#orderModal")
+        .classList.remove("show");
+
+}
+
+/* ================= LOAD ADMIN REVIEWS ================= */
+
+async function loadAdminReviews() {
+
+    const container =
+        document.querySelector("#adminReviewsContainer");
+
+    if (!container) {
+        return;
+    }
+
+    try {
+
+        const response =
+            await fetch("/api/reviews");
+
+        const result =
+            await response.json();
+
+        if (!result.success) {
+            container.innerHTML =
+                "<p>❌ Reviews load nahi ho paye.</p>";
+            return;
+        }
+
+        /* Summary */
+
+        document.querySelector("#adminAverageRating")
+            .textContent = result.average_rating;
+
+        document.querySelector("#adminTotalReviews")
+            .textContent = result.total_reviews;
+
+        const rounded =
+            Math.round(result.average_rating);
+
+        document.querySelector("#adminReviewStars")
+            .textContent =
+                "★".repeat(rounded) +
+                "☆".repeat(5 - rounded);
+
+
+        /* No reviews */
+
+        if (result.reviews.length === 0) {
+
+            container.innerHTML = `
+                <div class="no-admin-reviews">
+                    <h3>No reviews yet 📭</h3>
+                    <p>Customer reviews will appear here.</p>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        /* Reviews */
+
+        container.innerHTML =
+            result.reviews.map(review => `
+
+                <div class="admin-review-card">
+
+                    <div class="admin-review-top">
+
+                        <div>
+
+                            <h3>
+                                ${review.customer_name}
+                            </h3>
+
+                            <div class="admin-review-order">
+                                Order #${review.order_id}
+                            </div>
+
+                        </div>
+
+                        <div class="admin-review-stars">
+                            ${
+                                "★".repeat(review.rating)
+                            }${
+                                "☆".repeat(5 - review.rating)
+                            }
+                        </div>
+
+                    </div>
+
+                    ${
+                        review.comment
+                        ?
+                        `<p class="admin-review-comment">
+                            "${review.comment}"
+                        </p>`
+                        :
+                        "<p class='admin-review-comment'>No comment provided.</p>"
+                    }
+
+                </div>
+
+            `).join("");
+
+    } catch (error) {
+
+        console.error(
+            "Admin Reviews Error:",
+            error
+        );
+
+        container.innerHTML =
+            "<p>❌ Server se connection nahi ho paya.</p>";
+    }
+}
+
+setInterval(() => {
+    location.reload();
+}, 5000);
+</script>
+
+
+</body>
+
+</html>

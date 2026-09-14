@@ -316,12 +316,7 @@ def place_order():
         total
     )
 
-    return jsonify({
-        "success": True,
-        "message": "Order placed successfully!",
-        "order_id": order_id,
-        "email_sent": email_sent
-    })
+    
 
 @app.route("/api/order/<int:order_id>/status", methods=["POST"])
 def update_status(order_id):

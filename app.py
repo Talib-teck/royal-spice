@@ -307,16 +307,12 @@ def place_order():
     conn.commit()
     conn.close()
 
-    email_sent = send_order_email(
-        order_id,
-        customer_name,
-        phone,
-        address,
-        items,
-        total
-    )
-
-    
+    return jsonify({
+        "success": True,
+        "message": "Order placed successfully!",
+        "order_id": order_id,
+        "email_sent": False
+    })
 
 @app.route("/api/order/<int:order_id>/status", methods=["POST"])
 def update_status(order_id):
